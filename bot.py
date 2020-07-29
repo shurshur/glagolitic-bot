@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import re
-from time import localtime, strftime
+from time import time, localtime, strftime
 import telebot
 from Levenshtein import distance as levenshtein_distance
 import config
@@ -35,13 +35,19 @@ bot = telebot.TeleBot(config.bot_token)
 def translate_message(message):
   msg = message.text
   print ("%s <%s %s> %s" % (strftime("%Y-%m-%d %H:%M:%S", localtime(message.date)), message.from_user.first_name, message.from_user.last_name, msg))
+  if time() > message.date+config.max_timediff:
+    print (" message time too old :(")
+    return
   for code in dictmap:
     msgtr = translate(code, msg)
     dist = levenshtein_distance(msg, msgtr)
     ratio = dist/len(msg)
     if ratio > config.min_levenshtein_ratio:
       print (" code=%s ratio=%lf => %s" % (code, ratio, msgtr))
-      bot.send_message(message.chat.id, msgtr, reply_to_message_id=message.message_id)
+      try:
+        bot.send_message(message.chat.id, msgtr, reply_to_message_id=message.message_id)
+      except telebot.apihelper.ApiException:
+        print (" Exception occured!")
       return
 
 bot.polling()
