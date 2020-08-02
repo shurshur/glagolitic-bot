@@ -50,4 +50,10 @@ def translate_message(message):
         print (" Exception occured!")
       return
 
-bot.polling()
+while True:
+  try:
+    bot.polling()
+  except requests.exceptions.ConnectionError:
+    print (" ConnectionError exception occured while polling, restart in 1 second...")
+    time.sleep(1)
+    continue
