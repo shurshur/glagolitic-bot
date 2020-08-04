@@ -57,3 +57,11 @@ while True:
     print (" ConnectionError exception occured while polling, restart in 1 second...")
     time.sleep(1)
     continue
+  except telebot.apihelper.ApiException:
+    print (" ApiException exception occured while polling, restart in 1 second...")
+    time.sleep(1)
+    continue
+  except requests.exceptions.ReadTimeout:
+    print (" ReadTimeout exception occured while polling, restart in 1 second...")
+    time.sleep(1)
+    continue
