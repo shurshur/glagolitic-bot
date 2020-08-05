@@ -3,6 +3,7 @@ import sys
 import re
 from time import time, localtime, strftime
 import telebot
+import requests
 from Levenshtein import distance as levenshtein_distance
 import config
 
