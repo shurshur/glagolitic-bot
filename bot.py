@@ -28,7 +28,7 @@ def translate(code, text):
     text = re.sub(k, v, text)
   return text
 
-load_dict("gl2cyr","gl2cyr.tab")
+load_dict("glag2cyrl","glag2cyrl.tab")
 
 bot = telebot.TeleBot(config.bot_token)
 
