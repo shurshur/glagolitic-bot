@@ -33,10 +33,17 @@ load_dict("tfng2cyrl","tfng2cyrl.tab")
 
 bot = telebot.TeleBot(config.bot_token)
 
+@bot.message_handler(commands=["rules"])
+def rules(message):
+  if message.chat.type in ['group','supergroup'] and message.chat.id == -1001199017575:
+    with open("rules.md", "r") as f:
+      rules = f.read()
+    bot.send_message(message.chat.id, rules, parse_mode="Markdown")
+
 @bot.message_handler(content_types=['text'])
 def translate_message(message):
   msg = message.text
-  print ("%s <%s %s> %s" % (strftime("%Y-%m-%d %H:%M:%S", localtime(message.date)), message.from_user.first_name, message.from_user.last_name, msg))
+  print ("%s|%s <%s %s> %s" % (str(message.chat.id), strftime("%Y-%m-%d %H:%M:%S", localtime(message.date)), message.from_user.first_name, message.from_user.last_name, msg))
   if time() > message.date+config.max_timediff:
     print (" message time too old :(")
     return
