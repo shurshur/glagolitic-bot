@@ -35,6 +35,14 @@ load_dict("cyrl2tfng","cyrl2tfng.tab")
 
 bot = telebot.TeleBot(config.bot_token)
 
+# команда /rules для @mikitkinabeseda
+@bot.message_handler(commands=["rules"])
+def rules(message):
+  if message.chat.type in ['group','supergroup'] and message.chat.id == -1001199017575:
+    with open("rules.md", "r") as f:
+      rules = f.read()
+    bot.send_message(message.chat.id, rules, parse_mode="Markdown")
+
 @bot.message_handler(content_types=['text'])
 def translate_message(message):
   msg = message.text
@@ -55,14 +63,6 @@ def translate_message(message):
       except telebot.apihelper.ApiException:
         print (" Exception occured!")
       return
-
-# команда /rules для @mikitkinabeseda
-@bot.message_handler(commands=["rules"])
-def rules(message):
-  if message.chat.type in ['group','supergroup'] and message.chat.id == -1001199017575:
-    with open("rules.md", "r") as f:
-      rules = f.read()
-    bot.send_message(message.chat.id, rules, parse_mode="Markdown")
 
 # inline-режим, у боевого бота выключен, так как нельзя запретить использовать его в конкретном чате
 @bot.inline_handler(lambda query: len(query.query) > 0)
