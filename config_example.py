@@ -1,6 +1,9 @@
 # токен бота
 bot_token = '12345:ABCDEF'
 
+# токен discord-бота
+discord_bot_token = 'gCYquNipNiq4zMfoT4LqEnXh.qRv3zK.gRgw9jaEq4tVHnUyXfTNprhNtMi'
+
 # процент levenshtein distance от длины текста, выше которого выполнять транслитерацию
 # сделано для того, чтобы бот не копировал длинные сообщения с незначительным употреблением глаголицы
 min_levenshtein_ratio = 0.5
