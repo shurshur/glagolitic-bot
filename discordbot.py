@@ -2,8 +2,6 @@
 import sys
 import re
 from time import time, localtime, strftime, sleep
-#import telebot
-#import requests
 import discord
 from discord.ext import commands
 from Levenshtein import distance as levenshtein_distance
@@ -50,15 +48,24 @@ async def on_message(message):
     return
   if message.author.bot:
     return
+
   await bot.process_commands(message)
 
+  if message.type != discord.MessageType.default:
+    return
+
   msg = message.content
+  if len(msg) == 0:
+    logger.debug ("OOPS, zero-length message...")
+    logger.debug (message)
+    return
   for code in config.default_tabs:
     msgtr = translate(code, msg)
     dist = levenshtein_distance(msg, msgtr)
     ratio = dist/len(msg)
     if ratio > config.min_levenshtein_ratio:
-      print (" code=%s ratio=%lf => %s" % (code, ratio, msgtr))
+      logger.debug (msg)
+      logger.debug (" code=%s ratio=%lf => %s" % (code, ratio, msgtr))
       if config.test_mode:
         msgtr = "[TEST MODE] "+msgtr
       em = discord.Embed(description=msgtr)
