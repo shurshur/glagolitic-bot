@@ -8,6 +8,7 @@ try:
   from Levenshtein import distance as levenshtein_distance
 except ImportError:
   from distance import levenshtein as levenshtein_distance
+import signal
 import config
 
 dictmap = {}
@@ -79,6 +80,13 @@ def query_text(inline_query):
   r_glag = telebot.types.InlineQueryResultArticle('GLAG', f'{inline_query.query} -> {msgtr_glag}', telebot.types.InputTextMessageContent(msgtr_glag))
   r_tfng = telebot.types.InlineQueryResultArticle('TFNG', f'{inline_query.query} -> {msgtr_tfng}', telebot.types.InputTextMessageContent(msgtr_tfng))
   bot.answer_inline_query(inline_query.id, [r_glag, r_tfng])
+
+# shutdown on SIGINT to allow quit by Ctrl-C (usally just causes requests.exceptions.ConnectionError exception)
+def signal_handler(sig, frame):
+  print ("Shutdown bot...")
+  sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
 
 while True:
   try:
