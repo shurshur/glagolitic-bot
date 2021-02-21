@@ -4,7 +4,10 @@ import re
 from time import time, localtime, strftime, sleep
 import discord
 from discord.ext import commands
-from Levenshtein import distance as levenshtein_distance
+try:
+  from Levenshtein import distance as levenshtein_distance
+except ImportError:
+  from distance import levenshtein as levenshtein_distance
 import config
 
 dictmap = {}
