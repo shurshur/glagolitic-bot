@@ -11,7 +11,7 @@ except ImportError:
 import common
 import config
 
-common.load_dicts()
+common.load_tabs(config.all_tabs)
 
 import logging
 logger = logging.getLogger('discord')

@@ -12,8 +12,17 @@ min_levenshtein_ratio = 0.3
 # офлайне бота
 max_timediff = 300
 
+# список всех таблиц
+all_tabs = ["glag2cyrl","tfng2cyrl","cyrl2glag","cyrl2tfng","glag2ukr","glag2ukrilk"]
 # список таблиц по умолчанию
 default_tabs = ["glag2cyrl","tfng2cyrl"]
+# список таблиц по умолчанию для привата с ботом
+default_pm_tabs = ["glag2cyrl","tfng2cyrl","cyrl2glag"]
+# список таблиц для inline mode
+inline_tabs = ["cyrl2glag","cyrl2tfng"]
+
+# список ботов, чьи сообщения будут игнорироваться или удаляться при inline_policy=1 или 2
+blacklist_inline_bots = ["glagolitic_bot", "glagolitic_test_bot"]
 
 # тестовый режим: бот будет дописывать во все сообщения [TEST MODE]
 # сделано из-за того, что тестового бота иногда подключают в реальные чаты

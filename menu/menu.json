@@ -1,0 +1,132 @@
+{
+  "root": {
+    "message": "root.md",
+    "buttons": [
+      {
+        "caption": "Справка",
+        "action": "link",
+        "link": "help"
+      },
+      {
+        "caption": "Настройки",
+        "action": "link",
+        "link": "config"
+      },
+      {
+        "caption": "Конвенция глаголицы",
+        "action": "link",
+        "link": "convention"
+      },
+      {
+        "caption": "Приложения",
+        "action": "link",
+        "link": "applications"
+      }
+    ]
+  },
+  "help": {
+    "message": "help.md",
+    "buttons": [
+      {
+        "caption": "Настройки",
+        "action": "link",
+        "link": "config"
+      },
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "config": {
+    "message": "config.md",
+    "buttons": "config_buttons"
+  },
+  "config-extra": {
+    "message": "config-extra.md",
+    "buttons": "config_extra_buttons"
+  },
+  "convention": {
+    "message": "convention.md",
+    "buttons": [
+      {
+        "caption": "Конвенция для рус. языка",
+        "action": "link",
+        "link": "convention-ru"
+      },
+      {
+        "caption": "Конвенция для укр. языка (Van Dogh)",
+        "action": "link",
+        "link": "convention-uk-ilya"
+      },
+      {
+        "caption": "Конвенция для укр. языка (Нʌько́)",
+        "action": "link",
+        "link": "convention-uk-ilko"
+      },
+      {
+        "caption": "Тифинагица",
+        "action": "link",
+        "link": "tifinagh"
+      },
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "convention-ru": {
+    "message": "convention-ru.md",
+    "photo": "glagolitic-ru.jpg",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "convention-uk-ilya": {
+    "message": "convention-uk-ilya.md",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "convention-uk-ilko": {
+    "message": "convention-uk-ilko.md",
+    "photo": "glagolitic-uk-ilko.jpg",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "tifinagh": {
+    "message": "tifinagh.md",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "applications": {
+    "message": "applications.md",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  }
+}
