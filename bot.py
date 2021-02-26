@@ -14,6 +14,12 @@ except ImportError:
 import signal
 import common
 import config
+try:
+  __import__('pysqlite3')
+  import sys
+  sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ModuleNotFoundError:
+  pass
 from sqlite3worker import Sqlite3Worker
 
 common.load_tabs(config.all_tabs)
