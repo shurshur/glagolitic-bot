@@ -13,7 +13,7 @@ min_levenshtein_ratio = 0.3
 max_timediff = 300
 
 # список всех таблиц
-all_tabs = ["glag2rus","tfng2rus","rus2glag","rus2tfng","glag2ukrvdogh","glag2ukrilko","ukr2glag"]
+all_tabs = ["glag2rus","tfng2rus","rus2glag","rus2tfng","glag2ukr","ukr2glag"]
 # список таблиц по умолчанию
 default_tabs = ["glag2rus","tfng2rus"]
 # список таблиц по умолчанию для привата с ботом
