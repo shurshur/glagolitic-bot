@@ -19,7 +19,7 @@ default_tabs = ["glag2rus","tfng2rus"]
 # список таблиц по умолчанию для привата с ботом
 default_pm_tabs = ["glag2rus","tfng2rus","rus2glag"]
 # список таблиц для inline mode
-inline_tabs = ["rus2glag","rus2tfng"]
+inline_tabs = ["rus2glag","rus2tfng","ukr2glag"]
 
 # список ботов, чьи сообщения будут игнорироваться или удаляться при inline_policy=1 или 2
 blacklist_inline_bots = ["glagolitic_bot", "glagolitic_test_bot"]

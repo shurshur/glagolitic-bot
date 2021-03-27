@@ -268,8 +268,8 @@ def query_text(inline_query):
     msgtr = common.translate(code, inline_query.query)
     if config.test_mode:
       msgtr = "[TEST MODE] "+msgtr
-    keyboard.append(telebot.types.InlineQueryResultArticle(code, f'{inline_query.query} -> {msgtr}', telebot.types.InputTextMessageContent(msgtr)))
-  bot.answer_inline_query(inline_query.id, keyboard)
+    keyboard.append(telebot.types.InlineQueryResultArticle(code, f'{code}: {msgtr}', telebot.types.InputTextMessageContent(msgtr)))
+  bot.answer_inline_query(inline_query.id, keyboard, is_personal=True)
 
 # shutdown on SIGINT to allow quit by Ctrl-C (usally just causes requests.exceptions.ConnectionError exception)
 def signal_handler(sig, frame):
