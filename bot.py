@@ -118,7 +118,10 @@ def make_menu(item, chat):
   keyboard = types.InlineKeyboardMarkup()
   if type(item["buttons"]) is list:
     for b in item["buttons"]:
-      keyboard.add(types.InlineKeyboardButton(text=b["caption"], callback_data=f"{b['action']}:{b['link']}"))
+      if b["action"] == "link":
+        keyboard.add(types.InlineKeyboardButton(text=b["caption"], callback_data=f"link:{b['link']}"))
+      elif b["action"] == "url":
+        keyboard.add(types.InlineKeyboardButton(text=b["caption"], url=b['url']))
   elif item["buttons"] == "config_buttons":
     for code in config.all_tabs:
       if code in chat_config.tabs:

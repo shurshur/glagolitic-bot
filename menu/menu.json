@@ -18,6 +18,11 @@
         "link": "convention"
       },
       {
+        "caption": "Шрифты",
+        "action": "link",
+        "link": "fonts"
+      },
+      {
         "caption": "Приложения",
         "action": "link",
         "link": "applications"
@@ -119,9 +124,64 @@
       }
     ]
   },
+  "fonts": {
+    "message": "fonts.md",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
   "applications": {
     "message": "applications.md",
     "buttons": [
+      {
+        "caption": "Язык Telegram",
+        "action": "link",
+        "link": "telegram-language"
+      },
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "telegram-language": {
+    "message": "Выберите язык для Telegram",
+    "buttons": [
+      {
+        "caption": "Глаголица",
+        "action": "url",
+        "url": "https://t.me/setlanguage/glagol"
+      },
+      {
+        "caption": "Русский",
+        "action": "url",
+        "url": "https://t.me/setlanguage/ru"
+      },
+      {
+        "caption": "Украинский",
+        "action": "url",
+        "url": "https://t.me/setlanguage/uk"
+      },
+      {
+        "caption": "Белорусский",
+        "action": "url",
+        "url": "https://t.me/setlanguage/be"
+      },
+      {
+        "caption": "Английский",
+        "action": "url",
+        "url": "https://t.me/setlanguage/en"
+      },
+      {
+        "caption": "Назад",
+        "action": "link",
+        "link": "applications"
+      },
       {
         "caption": "В начало",
         "action": "link",
