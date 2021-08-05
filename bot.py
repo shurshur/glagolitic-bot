@@ -224,14 +224,6 @@ def menu_callback(call):
             print (f" uploaded document file_name={item['file']} file_id={file_id}")
       bot.send_message(chat_id=call.message.chat.id, text=msg, reply_markup=keyboard, parse_mode=parse_mode, disable_web_page_preview=True)
 
-# команда /rules для @mikitkinabeseda
-@bot.message_handler(commands=["rules"])
-def rules(message):
-  if message.chat.type in ['group','supergroup'] and message.chat.id == -1001199017575:
-    with open("rules.md", "r") as f:
-      rules = f.read()
-    bot.send_message(message.chat.id, rules, parse_mode="Markdown")
-
 @bot.message_handler(content_types=['text'])
 def translate_message(message):
   msg = message.text
