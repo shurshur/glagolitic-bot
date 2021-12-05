@@ -83,6 +83,7 @@ def load_chat_configs():
     for code in tabs[:]:
       if code not in config.all_tabs:
         tabs.remove(code)
+    chat_config.tabs = tabs
     chat_config.lock = True if lock else False
     chat_configs[chat_config.chat_id] = chat_config
 
