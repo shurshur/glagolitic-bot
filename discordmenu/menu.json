@@ -1,0 +1,128 @@
+{
+  "root": {
+    "message": "root.md",
+    "buttons": [
+      {
+        "caption": "Справка",
+        "action": "link",
+        "link": "help"
+      },
+      {
+        "caption": "Настройки",
+        "action": "link",
+        "link": "config"
+      },
+      {
+        "caption": "Конвенция глаголицы",
+        "action": "link",
+        "link": "convention"
+      },
+      {
+        "caption": "Шрифты",
+        "action": "link",
+        "link": "fonts"
+      },
+      {
+        "caption": "Приложения",
+        "action": "link",
+        "link": "applications"
+      }
+    ]
+  },
+  "help": {
+    "message": "help.md",
+    "buttons": [
+      {
+        "caption": "Настройки",
+        "action": "link",
+        "link": "config"
+      },
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "config": {
+    "message": "config.md",
+    "buttons": "config_buttons"
+  },
+  "convention": {
+    "message": "convention.md",
+    "buttons": [
+      {
+        "caption": "Конвенция для рус. языка",
+        "action": "link",
+        "link": "convention-ru"
+      },
+      {
+        "caption": "Конвенция для укр. языка",
+        "action": "link",
+        "link": "convention-uk"
+      },
+      {
+        "caption": "Тифинагица",
+        "action": "link",
+        "link": "tifinagh"
+      },
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "convention-ru": {
+    "message": "convention-ru.md",
+    "photo": "glagolitic-ru.jpg",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "convention-uk": {
+    "message": "convention-uk.md",
+    "photo": "glagolitic-uk.jpg",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "tifinagh": {
+    "message": "tifinagh.md",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "fonts": {
+    "message": "fonts.md",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "applications": {
+    "message": "applications.md",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  }
+}
