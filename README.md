@@ -13,16 +13,24 @@ inline mode.
 
 2. Выполнить команду: **pip install -r requirements.txt**
 
-3. Скопировать config\_example.py в config.py и поменять в нём токен бота.
+3. Скопировать config\_example.py в config.py и поменять в нём токен бота (переменная **bot_token**).
 
 4. Запустить: **python bot.py**
-
-Бот для Discord в файле discordbot.py.
 
 Бот использует модуль Levenshtein, который написан на C и требует C-компилятора.
 Если это вызывает неудобства (например, на Windows), то можно вместо него поставить
 pure python реализацию - модуль distance. Бот автоматически использует модуль distance
 при недоступности модуля Levenshtein.
+
+Бот для Discord в файле discordbot.py. Запуск бота:
+
+1. **pip install -r requirements-discord.txt**
+
+2. Прописать токен бота в config.py (переменная **discord_bot_token**)
+
+3. Запустить: **python discordbot.py**
+
+Discord-версия бота использует библиотеку **disnake**.
 
 Конвенцию глаголицы для современного русского языка разработал Ilya Van Dogh (@poehavshyi).
 
