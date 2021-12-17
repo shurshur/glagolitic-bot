@@ -75,7 +75,7 @@
   },
   "convention-ru": {
     "message": "convention-ru.md",
-    "photo": "glagolitic-ru.jpg",
+    "photo": "https://shurshur.github.io/glagolitic-bot/glagolitic-ru.jpg",
     "buttons": [
       {
         "caption": "В начало",
@@ -86,7 +86,7 @@
   },
   "convention-uk": {
     "message": "convention-uk.md",
-    "photo": "glagolitic-uk.jpg",
+    "photo": "https://shurshur.github.io/glagolitic-bot/glagolitic-uk.jpg",
     "buttons": [
       {
         "caption": "В начало",
