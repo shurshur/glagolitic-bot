@@ -147,14 +147,15 @@ class MenuButton(discord.ui.Button['Menu']):
             return
         view = Menu(node=self.link, guild=interaction.guild, channel=interaction.channel)
         item = menu[self.link]
-        att = []
         emb = None
         if "photo" in item:
-            att.append(discord.File(os.path.join("discordmenu", item["photo"])))
+            emb = discord.Embed()
+            emb.set_image(item["photo"])
         elif "file" in item:
-            att.append(discord.File(os.path.join("discordmenu", item["file"])))
+            emb = discord.Embed()
+            emb.set_image(item["file"])
         if self.action in ["link","inline_link"]:
-            await interaction.response.edit_message(content=menu[self.link]["message"], view=view, files=att)
+            await interaction.response.edit_message(content=menu[self.link]["message"], view=view, embed=emb)
         else:
             await interaction.response.send_message(content="Странное значение action :(")
 
