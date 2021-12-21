@@ -201,6 +201,8 @@ bot = commands.Bot(command_prefix=commands.when_mentioned_or('!'), sync_commands
 @bot.event
 async def on_ready():
     print(f'We have logged in as {bot.user}')
+    for guild in bot.guilds:
+        print (f' ` joined to guild {guild.id} ({guild.name})')
 
 @bot.event
 async def on_message(message):
