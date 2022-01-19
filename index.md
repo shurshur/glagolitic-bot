@@ -10,6 +10,7 @@ Glagolitic Bot поможет вам использовать эту краси�
 
 * [Бот для Telegram](https://t.me/glagolitic_bot), [Справка](help-telegram.md)
 * [Бот для Discord](https://discord.com/oauth2/authorize?client_id=794912275609157632&scope=bot&permissions=67193856), [Справка](help-discord.md)
+* [Бот для Matrix](use-matrix.md), [Справка](help-matrix.md)
 * [Конвенция глаголицы для русского языка](convention-ru.md)
 * [Конвенция глаголицы для украинского языка](convention-uk.md)
 * [Тифинагица](tifinagh.md)
