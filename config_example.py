@@ -4,13 +4,19 @@ bot_token = '12345:ABCDEF'
 # токен discord-бота
 discord_bot_token = 'gCYquNipNiq4zMfoT4LqEnXh.qRv3zK.gRgw9jaEq4tVHnUyXfTNprhNtMi'
 
+# реквизиты matrix-бота, их можно получить с помощью скрипта matrix-get-token.py
+matrix_homeserver = "https://matrix.org"
+matrix_user_id = "myawesomebot:matrix.org"
+matrix_device_id = "MOO_DEVICE"
+matrix_access_token = "syt_ZjBiYTNlOWJmNT_jOTJkZjk0NmQyNmE3NzViOTcgIC"
+
 # процент levenshtein distance от длины текста, выше которого выполнять транслитерацию
 # сделано для того, чтобы бот не копировал длинные сообщения с незначительным употреблением глаголицы
 min_levenshtein_ratio = 0.3
 
 # максимальное количество секунд отставания от текущего времени для исключения флуда при
 # офлайне бота
-max_timediff = 300
+max_timediff = 30
 
 # список всех таблиц
 all_tabs = ["glag2rus","tfng2rus","rus2glag","rus2tfng","glag2ukr","ukr2glag"]
