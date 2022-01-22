@@ -24,14 +24,20 @@ class MatrixBot:
         msg = event.body
         msgtr = common.process_message(msg, config.default_tabs, config.min_levenshtein_ratio, "[TEST MODE] " if config.test_mode else False)
         if msgtr:
+            content = {
+                "msgtype": "m.text",
+                "body": msgtr,
+            }
+            m_relates_to = event.source["content"].get("m.relates_to", None)
+            if m_relates_to and m_relates_to.get("rel_type", None) == "io.element.thread":
+                content["m.relates_to"] = {
+                    "rel_type": "io.element.thread",
+                    "event_id": m_relates_to.get("event_id", None),
+                }
             await self.client.room_send(
                 room_id=room.room_id,
                 message_type="m.room.message",
-                content= {
-                    "msgtype": "m.text",
-                    "body": msgtr,
-                    "m.relates_to": { "m.in_reply_to": event.event_id },
-                }
+                content=content
             )
 
     async def on_invite(self, room: MatrixRoom, event: InviteMemberEvent) -> None:
