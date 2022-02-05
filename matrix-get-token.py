@@ -4,15 +4,15 @@ import json
 import asyncio
 import getpass
 
-from nio import AsyncClient, LoginResponse
+from nio import AsyncClient, AsyncClientConfig, LoginResponse
 
 async def main() -> None:
     matrix_homeserver = "https://matrix.org"
     matrix_user_id = "@myawesomebot:matrix.org"
     matrix_password = getpass.getpass(f"Enter password for {matrix_user_id}: ")
 
-    client = AsyncClient(matrix_homeserver, matrix_user_id)
-    resp = await client.login(matrix_password)
+    client = AsyncClient(matrix_homeserver, matrix_user_id, config=AsyncClientConfig(store_path="./store", encryption_enabled=True))
+    resp = await client.login(matrix_password, device_name="glagolitic-bot")
     if isinstance(resp, LoginResponse):
         print (f"""Add these parameters to config.py:
 

@@ -10,7 +10,7 @@ import config
 
 common.load_tabs(config.all_tabs)
 
-from nio import AsyncClient, LoginResponse, MatrixRoom, RoomMessageText, InviteMemberEvent
+from nio import AsyncClient, AsyncClientConfig, LoginResponse, MatrixRoom, RoomMessage, RoomMessageText, InviteMemberEvent, KeyVerificationEvent, KeyVerificationStart, RoomVisibility
 
 class MatrixBot:
     def __init__(self):
@@ -37,7 +37,8 @@ class MatrixBot:
             await self.client.room_send(
                 room_id=room.room_id,
                 message_type="m.room.message",
-                content=content
+                content=content,
+                ignore_unverified_devices=True,
             )
 
     async def on_invite(self, room: MatrixRoom, event: InviteMemberEvent) -> None:
@@ -45,11 +46,22 @@ class MatrixBot:
         await self.client.join(room.room_id)
 
     async def run(self) -> None:
-        self.client = AsyncClient(config.matrix_homeserver)
+        client_config = AsyncClientConfig(store_sync_tokens=True, encryption_enabled=True)
+        self.client = AsyncClient(config.matrix_homeserver, store_path="./store", config=client_config)
 
-        self.client.access_token = config.matrix_access_token
-        self.client.user_id = config.matrix_user_id
-        self.client.device_id = config.matrix_device_id
+        self.client.restore_login(
+            user_id=config.matrix_user_id,
+            device_id=config.matrix_device_id,
+            access_token=config.matrix_access_token,
+        )
+
+        if self.client.should_upload_keys:
+            await self.client.keys_upload()
+        if self.client.should_query_keys:
+            await self.client.keys_query()
+        if self.client.should_claim_keys:
+            await self.client.keys_claim()
+        await self.client.sync(full_state=True)
 
         self.client.add_event_callback(self.on_message, RoomMessageText)
         self.client.add_event_callback(self.on_invite, InviteMemberEvent)
