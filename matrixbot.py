@@ -17,6 +17,8 @@ class MatrixBot:
         self.client = None
 
     async def on_message(self, room: MatrixRoom, event: RoomMessageText) -> None:
+        if event.sender == self.client.user_id:
+            return
         print (f"{strftime('%Y-%m-%d %H:%M:%S', localtime(event.server_timestamp/1000))}: {room.room_id}({room.display_name})|<{event.sender}({room.user_name(event.sender)})> {event.body}")
         if time() - event.server_timestamp/1000 > config.max_timediff:
             print (" ` skip old message")
