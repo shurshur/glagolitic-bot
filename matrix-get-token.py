@@ -11,7 +11,7 @@ async def main() -> None:
     matrix_user_id = "@myawesomebot:matrix.org"
     matrix_password = getpass.getpass(f"Enter password for {matrix_user_id}: ")
 
-    client = AsyncClient(matrix_homeserver, matrix_user_id, config=AsyncClientConfig(store_path="./store", encryption_enabled=True))
+    client = AsyncClient(matrix_homeserver, matrix_user_id, config=AsyncClientConfig(encryption_enabled=True), store_path="./store")
     resp = await client.login(matrix_password, device_name="glagolitic-bot")
     if isinstance(resp, LoginResponse):
         print (f"""Add these parameters to config.py:
