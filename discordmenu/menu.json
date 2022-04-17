@@ -97,6 +97,7 @@
   },
   "tifinagh": {
     "message": "tifinagh.md",
+    "photo": "https://shurshur.github.io/glagolitic-bot/tifinagh.png",
     "buttons": [
       {
         "caption": "В начало",

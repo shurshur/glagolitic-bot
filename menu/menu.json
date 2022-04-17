@@ -101,6 +101,7 @@
   },
   "tifinagh": {
     "message": "tifinagh.md",
+    "photo": "tifinagh.png",
     "buttons": [
       {
         "caption": "В начало",
