@@ -31,9 +31,9 @@ class MatrixBot:
                 "body": msgtr,
             }
             m_relates_to = event.source["content"].get("m.relates_to", None)
-            if m_relates_to and m_relates_to.get("rel_type", None) == "io.element.thread":
+            if m_relates_to and m_relates_to.get("rel_type", None) == "m.thread":
                 content["m.relates_to"] = {
-                    "rel_type": "io.element.thread",
+                    "rel_type": "m.thread",
                     "event_id": m_relates_to.get("event_id", None),
                 }
             await self.client.room_send(
