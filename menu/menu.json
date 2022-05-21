@@ -18,6 +18,11 @@
         "link": "convention"
       },
       {
+        "caption": "Эзотерические письменности",
+        "action": "link",
+        "link": "esoteric"
+      },
+      {
         "caption": "Шрифты",
         "action": "link",
         "link": "fonts"
@@ -66,9 +71,29 @@
         "link": "convention-uk"
       },
       {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "esoteric": {
+    "message": "esoteric.md",
+    "buttons": [
+      {
         "caption": "Тифинагица",
         "action": "link",
         "link": "tifinagh"
+      },
+      {
+        "caption": "Ивритица",
+        "action": "link",
+        "link": "hebrew"
+      },
+      {
+        "caption": "Коптица",
+        "action": "link",
+        "link": "coptic"
       },
       {
         "caption": "В начало",
@@ -102,6 +127,28 @@
   "tifinagh": {
     "message": "tifinagh.md",
     "photo": "tifinagh.png",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "hebrew": {
+    "message": "hebrew.md",
+    "photo": "hebrew.png",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "coptic": {
+    "message": "coptic.md",
+    "photo": "coptic.png",
     "buttons": [
       {
         "caption": "В начало",

@@ -20,6 +20,10 @@ def load_tab(code,fn=None):
         continue
       m1 = m.group(1)
       m2 = m.group(2)
+      m1 = re.sub(r'_','(\\\\b|[^\\\\w])',m1)
+      m2 = re.sub(r'_','\\\\1',m2,1)
+      m2 = re.sub(r'_','\\\\2',m2,1)
+      m2 = re.sub(r'_','\\\\3',m2,1)
       if m2 == "!": m2 = ""
       tabmap[code].append((m1, m2))
 

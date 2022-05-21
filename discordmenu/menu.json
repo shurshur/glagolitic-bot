@@ -18,6 +18,11 @@
         "link": "convention"
       },
       {
+        "caption": "Эзотерические письменности",
+        "action": "link",
+        "link": "esoteric"
+      },
+      {
         "caption": "Шрифты",
         "action": "link",
         "link": "fonts"
@@ -62,9 +67,29 @@
         "link": "convention-uk"
       },
       {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "esoteric": {
+    "message": "esoteric.md",
+    "buttons": [
+      {
         "caption": "Тифинагица",
         "action": "link",
         "link": "tifinagh"
+      },
+      {
+        "caption": "Ивритица",
+        "action": "link",
+        "link": "hebrew"
+      },
+      {
+        "caption": "Коптица",
+        "action": "link",
+        "link": "coptic"
       },
       {
         "caption": "В начало",
@@ -98,6 +123,28 @@
   "tifinagh": {
     "message": "tifinagh.md",
     "photo": "https://shurshur.github.io/glagolitic-bot/tifinagh.png",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "hebrew": {
+    "message": "hebrew.md",
+    "photo": "https://shurshur.github.io/glagolitic-bot/hebrew.png",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "coptic": {
+    "message": "coptic.md",
+    "photo": "https://shurshur.github.io/glagolitic-bot/coptic.png",
     "buttons": [
       {
         "caption": "В начало",
