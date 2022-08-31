@@ -114,7 +114,10 @@ def do_config(guild, channel, arg):
     elif arg.startswith("tabs+"):
         chat_config.tabs.append(arg.split("+")[1])
     elif arg.startswith("tabs-"):
-        chat_config.tabs.remove(arg.split("-")[1])
+        try:
+            chat_config.tabs.remove(arg.split("-")[1])
+        except ValueError:
+            pass
     save_chat_config(guild, channel)
 
 menu = None
