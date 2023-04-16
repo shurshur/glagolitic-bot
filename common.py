@@ -42,6 +42,8 @@ def translate(code, text):
   return text
 
 def process_message(msg, tabs, min_levenshtein_ratio, test_mode_prefix=False):
+  if len(msg) < 1:
+    return None
   for code in tabs:
     msgtr = translate(code, msg)
     dist = levenshtein_distance(msg, msgtr)
