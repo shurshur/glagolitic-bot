@@ -96,6 +96,11 @@
         "link": "coptic"
       },
       {
+        "caption": "Хираганица и катаканица",
+        "action": "link",
+        "link": "kana"
+      },
+      {
         "caption": "В начало",
         "action": "link",
         "link": "root"
@@ -149,6 +154,16 @@
   "coptic": {
     "message": "coptic.md",
     "photo": "coptic.png",
+    "buttons": [
+      {
+        "caption": "В начало",
+        "action": "link",
+        "link": "root"
+      }
+    ]
+  },
+  "kana": {
+    "message": "kana.md",
     "buttons": [
       {
         "caption": "В начало",
