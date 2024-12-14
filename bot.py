@@ -243,6 +243,7 @@ def translate_message(message):
       return
     elif chat_config.inline_policy == 1:
       return
+  reply_to_message_id = message.message_id
   if chat_config.lock: return
   if time() > message.date+config.max_timediff:
     print (" message time too old :(")
@@ -250,12 +251,11 @@ def translate_message(message):
   msgtr = common.process_message(msg, chat_config.tabs, config.min_levenshtein_ratio, "[TEST MODE] " if config.test_mode else False)
   if msgtr:
     try:
-      bot.send_message(message.chat.id, msgtr, reply_to_message_id=message.message_id)
+      bot.send_message(message.chat.id, msgtr, reply_to_message_id=reply_to_message_id)
     except telebot.apihelper.ApiException:
       print (" Exception occured!")
   return
 
-# inline-режим, у боевого бота выключен, так как нельзя запретить использовать его в конкретном чате
 @bot.inline_handler(lambda query: len(query.query) > 0)
 def query_text(inline_query):
   print (inline_query)

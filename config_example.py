@@ -10,6 +10,12 @@ matrix_user_id = "myawesomebot:matrix.org"
 matrix_device_id = "MOO_DEVICE"
 matrix_access_token = "syt_ZjBiYTNlOWJmNT_jOTJkZjk0NmQyNmE3NzViOTcgIC"
 
+# токен бота для revolt
+revolt_bot_token = "XYZ_***"
+
+# токен бота для guilded
+guilded_bot_token = "gapi_***"
+
 # процент levenshtein distance от длины текста, выше которого выполнять транслитерацию
 # сделано для того, чтобы бот не копировал длинные сообщения с незначительным употреблением глаголицы
 min_levenshtein_ratio = 0.3
