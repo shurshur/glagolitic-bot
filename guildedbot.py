@@ -22,11 +22,6 @@ except ImportError:
 import common
 import config
 
-import urllib.request
-
-print (urllib.request.getproxies())
-sys.exit()
-
 common.load_tabs(config.all_tabs)
 
 bot = commands.Bot(command_prefix='!')
