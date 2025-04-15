@@ -169,7 +169,7 @@ def do_config(chat, arg):
 def show_menu(message):
   if message.chat.type != 'private': return
   msg, parse_mode, keyboard = make_menu('root', message.chat)
-  bot.send_message(message.chat.id, msg, reply_markup=keyboard, parse_mode=parse_mode, disable_web_page_preview=True)
+  bot.send_message(message.chat.id, msg, reply_markup=keyboard, parse_mode=parse_mode, message_thread_id=message.message_thread_id, disable_web_page_preview=True)
 
 @bot.message_handler(commands=['config'])
 def show_config(message):
@@ -179,7 +179,7 @@ def show_config(message):
   elif message.chat.type != 'private':
     return
   msg, parse_mode, keyboard = make_menu('config', message.chat)
-  bot.send_message(message.chat.id, msg, reply_markup=keyboard, parse_mode=parse_mode, disable_web_page_preview=True)
+  bot.send_message(message.chat.id, msg, reply_markup=keyboard, parse_mode=parse_mode, message_thread_id=message.message_thread_id, disable_web_page_preview=True)
 
 @bot.callback_query_handler(func=lambda call: call.message is not None)
 def menu_callback(call):
@@ -206,11 +206,11 @@ def menu_callback(call):
         if item["photo"] in files:
           file_id = files[item["photo"]]
           print (f" send photo file_name={item['photo']} file_id={file_id}")
-          bot.send_photo(call.message.chat.id, file_id)
+          bot.send_photo(call.message.chat.id, file_id, message_thread_id=message.message_thread_id)
         else:
           with open(os.path.join("menu", item["photo"]), "rb") as f:
-            bot.send_chat_action(call.message.chat.id, "upload_photo")
-            r = bot.send_photo(call.message.chat.id, f)
+            bot.send_chat_action(call.message.chat.id, "upload_photo", message_thread_id=message.message_thread_id)
+            r = bot.send_photo(call.message.chat.id, f, message_thread_id=message.message_thread_id)
             file_id = r.photo[0].file_id
             save_file(item["photo"], file_id)
             print (f" uploaded photo file_name={item['photo']} file_id={file_id}")
@@ -218,15 +218,15 @@ def menu_callback(call):
         if item["file"] in files:
           file_id = files[item["file"]]
           print (f" send document file_name={item['file']} file_id={file_id}")
-          bot.send_document(call.message.chat.id, file_id)
+          bot.send_document(call.message.chat.id, file_id, message_thread_id=message.message_thread_id)
         else:
           with open(os.path.join("menu", item["file"]), "rb") as f:
-            bot.send_chat_action(call.message.chat.id, "upload_document")
-            r = bot.send_document(call.message.chat.id, f)
+            bot.send_chat_action(call.message.chat.id, "upload_document", message_thread_id=message.message_thread_id)
+            r = bot.send_document(call.message.chat.id, f, message_thread_id=message.message_thread_id)
             file_id = r.document.file_id
             save_file(item["file"], file_id)
             print (f" uploaded document file_name={item['file']} file_id={file_id}")
-      bot.send_message(chat_id=call.message.chat.id, text=msg, reply_markup=keyboard, parse_mode=parse_mode, disable_web_page_preview=True)
+      bot.send_message(chat_id=call.message.chat.id, text=msg, reply_markup=keyboard, parse_mode=parse_mode, message_thread_id=message.message_thread_id, disable_web_page_preview=True)
 
 @bot.message_handler(content_types=['text'])
 def translate_message(message):
@@ -251,7 +251,7 @@ def translate_message(message):
   msgtr = common.process_message(msg, chat_config.tabs, config.min_levenshtein_ratio, "[TEST MODE] " if config.test_mode else False)
   if msgtr:
     try:
-      bot.send_message(message.chat.id, msgtr, reply_to_message_id=reply_to_message_id)
+      bot.send_message(message.chat.id, msgtr, reply_to_message_id=reply_to_message_id, message_thread_id=message.message_thread_id)
     except telebot.apihelper.ApiException:
       print (" Exception occured!")
   return
