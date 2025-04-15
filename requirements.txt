@@ -1,3 +1,4 @@
 pytelegrambotapi
 python-Levenshtein
 sqlite3worker
+jamotools

@@ -25,13 +25,13 @@ min_levenshtein_ratio = 0.3
 max_timediff = 30
 
 # список всех таблиц
-all_tabs = ["glag2rus","tfng2rus","rus2glag","rus2tfng","glag2ukr","ukr2glag","hebr2rus","rus2hebr","copt2rus","rus2copt","rus2hira","rus2kana"]
+all_tabs = ["glag2rus","tfng2rus","rus2glag","rus2tfng","glag2ukr","ukr2glag","hebr2rus","rus2hebr","copt2rus","rus2copt","rus2hira","rus2kana","rus2jamo","rus2hang"]
 # список таблиц по умолчанию
 default_tabs = ["glag2rus","tfng2rus"]
 # список таблиц по умолчанию для привата с ботом
 default_pm_tabs = ["glag2rus","tfng2rus","hebr2rus","copt2rus","rus2glag"]
 # список таблиц для inline mode
-inline_tabs = ["rus2glag","rus2tfng","ukr2glag","rus2hebr","rus2copt","rus2hira","rus2kana"]
+inline_tabs = ["rus2glag","rus2tfng","ukr2glag","rus2hebr","rus2copt","rus2hira","rus2kana","rus2jamo","rus2hang"]
 
 # список ботов, чьи сообщения будут игнорироваться или удаляться при inline_policy=1 или 2
 blacklist_inline_bots = ["glagolitic_bot", "glagolitic_test_bot"]

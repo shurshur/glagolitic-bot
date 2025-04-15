@@ -4,9 +4,12 @@ try:
 except ImportError:
   from distance import levenshtein as levenshtein_distance
 
+import jamotools
+
 tabmap = {}
 
 def load_tab(code,fn=None):
+  if code == "rus2hang": return
   tabmap[code] = []
   if not fn:
     fn = code + '.tab'
@@ -34,11 +37,17 @@ def load_tabs(tabs):
     load_tab(tab)
 
 def translate(code, text):
-  for k,v in tabmap[code]:
+  if code == "rus2hang":
+    real_code = "rus2jamo"
+  else:
+    real_code = code
+  for k,v in tabmap[real_code]:
     text = re.sub(k, v, text)
   # в тифинагице текст из одних "ь" может превратиться в пустую строку, это нехорошо
   if text == "":
     text = "%%%"
+  if code == "rus2hang":
+    text = jamotools.join_jamos(text)
   return text
 
 def process_message(msg, tabs, min_levenshtein_ratio, test_mode_prefix=False):

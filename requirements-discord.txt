@@ -1,3 +1,4 @@
 disnake
 python-Levenshtein
 sqlite3worker
+jamotools
