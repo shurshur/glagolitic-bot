@@ -175,7 +175,7 @@
   },
   "hangul": {
     "message": "hangul.md",
-    "photo": "https://shurshur.github.io/glagolitic-bot/hangul.png",
+    "photo": "https://shurshur.github.io/glagolitic-bot/jamo.png",
     "buttons": [
       {
         "caption": "В начало",
