@@ -197,9 +197,11 @@ class Menu(discord.ui.View):
             self.__col = 1
             self.__row += 1
 
+intents = discord.Intents.default()
+intents.message_content = True
 #test_guilds = [716373583982493697]
 test_guilds = None
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('!'), sync_commands_debug=True, test_guilds=test_guilds)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('!'), sync_commands_debug=True, test_guilds=test_guilds, intents=intents)
 
 @bot.event
 async def on_ready():
