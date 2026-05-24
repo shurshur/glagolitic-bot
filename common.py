@@ -15,11 +15,12 @@ def load_tab(code,fn=None):
     fn = code + '.tab'
   with open(fn,"r") as f:
     for l in f:
-      if l.startswith('#') or l.startswith(' '):
+      l = re.sub('#.+', '', l.strip())
+      if l == '':
         continue
       m = re.search(r'^(\S+)\s(\S+)', l)
       if not m:
-        print ("ERROR: [%s]" % l)
+        print (f'ERROR in file {fn}: [{l}]')
         continue
       m1 = m.group(1)
       m2 = m.group(2)
