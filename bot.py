@@ -109,7 +109,7 @@ def load_menu():
   menu = json.load(open("menu/menu.json","r"))
   for _, item in menu.items():
     msg = item["message"]
-    if re.match('[-_\w]+\.(?:md|html)', msg):
+    if re.match(r'[-_\w]+\.(?:md|html)', msg):
       with open(os.path.join("menu", msg), "r") as f:
         item["message"] = f.read()
 

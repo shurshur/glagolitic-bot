@@ -127,7 +127,7 @@ def load_menu():
     menu = json.load(open("discordmenu/menu.json","r"))
     for _, item in menu.items():
         msg = item["message"]
-        if re.match('[-_\w]+\.(?:txt|md|html)', msg):
+        if re.match(r'[-_\w]+\.(?:txt|md|html)', msg):
             with open(os.path.join("discordmenu", msg), "r") as f:
                 item["message"] = f.read()
 
